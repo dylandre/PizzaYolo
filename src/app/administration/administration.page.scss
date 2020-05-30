@@ -1,0 +1,38 @@
+#title-container {
+  margin: 25px 0;
+  text-align: center;
+
+  strong {
+    font-size: 20px;
+    line-height: 26px;
+  }
+
+  p {
+    font-size: 16px;
+    line-height: 22px;
+
+    color: #8c8c8c;
+
+    margin: 0;
+  }
+
+  a {
+    text-decoration: none;
+  }
+}
+#card-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  text-align: center;
+
+  ion-card{
+    max-width: 300px;
+    min-width: 200px;
+    margin: 10px;
+  }
+}
+#add-container {
+  text-align: center;
+  margin: 0 0 25px 0;
+}

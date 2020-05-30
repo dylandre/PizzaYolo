@@ -1,0 +1,23 @@
+<app-header></app-header>
+<ion-content>
+  <div id="title-container">
+    <strong>Bienvenue dans notre application de Pizzéria</strong>
+    <p>Ici vous pourrez créer, modifier ou supprimer les pizzas et les ingrédients de votre choix !</p>
+  </div>
+  <div id="add-container">
+    <ion-button expand="full" size="large" color="dark">Créer une pizza</ion-button>
+  </div>
+  <div id="card-container">
+    <ion-card *ngFor="let onePizza of pizza">
+      <img src="{{onePizza.photo}}">
+      <ion-card-header>
+        <ion-card-title>{{onePizza.nom}}</ion-card-title>
+        <ion-card-subtitle>{{onePizza.prix}} €</ion-card-subtitle>
+      </ion-card-header>
+      <ion-card-content>
+        <ion-button expand="block" color="dark">Modifier la Pizza</ion-button>
+        <ion-button expand="block" color="dark" (click)="deleteOnePizza(onePizza.id)">Supprimer la Pizza</ion-button>
+      </ion-card-content>
+    </ion-card>
+  </div>
+</ion-content>
