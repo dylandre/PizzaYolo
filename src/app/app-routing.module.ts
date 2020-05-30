@@ -16,9 +16,9 @@ const routes: Routes = [
     loadChildren: () => import('./pizza/pizza.module').then( m => m.PizzaPageModule)
   },
   {
-    path: 'commande',
-    loadChildren: () => import('./commande/commande.module').then( m => m.CommandePageModule)
-  },
+    path: 'administration',
+    loadChildren: () => import('./administration/administration.module').then( m => m.AdministrationPageModule)
+  }
 ];
 
 @NgModule({
