@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { PizzaService } from '../services/pizza.service';
 import Pizza from '../models/Pizza';
 import { ModalController } from '@ionic/angular';
-import { PanierComponent } from '../panier/panier.component';
 
 @Component({
   selector: 'app-pizza',

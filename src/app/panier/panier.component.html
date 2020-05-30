@@ -20,9 +20,18 @@
           <h2>{{oneProduct.nom}}</h2>
           <h3>{{oneProduct.prix}} €</h3>
         </ion-label>
-        <ion-button slot="end" (click)="razPizzaToBuy(oneProduct.id)">
-          <ion-icon name="trash-outline"></ion-icon>
-        </ion-button>
+        <ion-buttons slot="end">
+          <ion-button (click)="addQuantity(oneProduct.id)">
+            <ion-icon name="add-outline"></ion-icon>
+          </ion-button>
+          <ion-label>{{oneProduct.quantity}}</ion-label>
+          <ion-button (click)="removeQuantity(oneProduct.id)">
+            <ion-icon name="remove-outline"></ion-icon>
+          </ion-button>
+          <ion-button (click)="razPizzaToBuy(oneProduct.id)">
+            <ion-icon name="trash-outline"></ion-icon>
+          </ion-button>
+        </ion-buttons>
       </ion-item>
     </ion-list>
   </div>

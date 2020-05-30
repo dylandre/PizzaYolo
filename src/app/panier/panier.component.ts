@@ -9,14 +9,22 @@ import Pizza from '../models/Pizza';
   styleUrls: ['./panier.component.scss'],
 })
 export class PanierComponent implements OnInit {
+  @Input() public panier: Pizza[];
 
   constructor(private modalController: ModalController, private pizzaService: PizzaService) {
     this.panier = [];
   }
-  @Input() public panier: Pizza[];
 
   async closeModal() {
     await this.modalController.dismiss();
+  }
+
+  addQuantity(myPizzaId: number) {
+    this.pizzaService.addPizzaQuantity(myPizzaId);
+  }
+
+  removeQuantity(myPizzaId: number) {
+    this.pizzaService.removePizzaQuantity(myPizzaId);
   }
 
   razPizzaToBuy(id: number) {

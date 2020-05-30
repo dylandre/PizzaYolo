@@ -27,7 +27,7 @@ export class AdministrationPage implements OnInit {
 
   ngOnInit() {}
 
-  deleteOnePizza(id: number) {
+  /*deleteOnePizza(id: number) {
     this.pizzaService.deletePizza(id).subscribe(
         value => this.delete = value,
         error1 => {
@@ -36,5 +36,5 @@ export class AdministrationPage implements OnInit {
         },
         () => this.loading = true
     );
-  }
+  }*/
 }

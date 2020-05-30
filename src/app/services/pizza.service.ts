@@ -3,7 +3,6 @@ import { HttpClient } from '@angular/common/http';
 import IPizza from '../models/IPizza';
 import Pizza from '../models/Pizza';
 import {BehaviorSubject, Observable} from 'rxjs';
-import {observableToBeFn} from 'rxjs/internal/testing/TestScheduler';
 
 @Injectable({
   providedIn: 'root'
@@ -22,7 +21,12 @@ export class PizzaService {
 
   addPizzaToCard(myPizza: Pizza) {
     const tmp = this.panier.getValue();
-    tmp.push(myPizza);
+    if (tmp.includes(myPizza) === true) {
+      tmp.find(value => value === myPizza).quantity += 1;
+    } else {
+      myPizza.quantity = 1;
+      tmp.push(myPizza);
+    }
     this.panier.next(this.panier.getValue());
   }
 
@@ -32,15 +36,22 @@ export class PizzaService {
     this.panier.next(this.panier.getValue());
   }
 
-  createPizza(newPizza: Pizza) {
-    return this.http.post(this.pizzaUrl, newPizza);
+  addPizzaQuantity(myPizzaId: number) {
+    const tmp = this.panier.getValue();
+    tmp.find(value => value.id === myPizzaId).quantity += 1;
+    this.panier.next(this.panier.getValue());
   }
 
-  changePizza(id: number, body) {
-    return this.http.patch(this.pizzaUrl + id, body);
+  removePizzaQuantity(myPizzaId: number) {
+    const tmp = this.panier.getValue();
+    if (tmp.find(value => value.id === myPizzaId).quantity > 1) {
+      tmp.find(value => value.id === myPizzaId).quantity -= 1;
+    } else {
+      this.deletePizzaToCard(tmp.find(value => value.id === myPizzaId));
+    }
   }
 
-  deletePizza(id: number): Observable<boolean> {
+  /*deletePizza(id: number): Observable<boolean> {
     return this.http.delete<boolean>(this.pizzaUrl + id);
-  }
+  }*/
 }
