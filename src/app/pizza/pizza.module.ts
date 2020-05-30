@@ -7,14 +7,20 @@ import { IonicModule } from '@ionic/angular';
 import { PizzaPageRoutingModule } from './pizza-routing.module';
 
 import { PizzaPage } from './pizza.page';
+import {HomePageModule} from '../home/home.module';
+import {PizzaService} from '../services/pizza.service';
+import { PanierComponent } from '../panier/panier.component';
 
 @NgModule({
-  imports: [
-    CommonModule,
-    FormsModule,
-    IonicModule,
-    PizzaPageRoutingModule
-  ],
-  declarations: [PizzaPage]
+    imports: [
+        CommonModule,
+        FormsModule,
+        IonicModule,
+        PizzaPageRoutingModule,
+        HomePageModule
+    ],
+    declarations: [PizzaPage, PanierComponent],
+    entryComponents: [PanierComponent],
+    providers: [PizzaService]
 })
 export class PizzaPageModule {}
