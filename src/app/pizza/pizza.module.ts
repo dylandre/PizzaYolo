@@ -10,6 +10,7 @@ import { PizzaPage } from './pizza.page';
 import {HomePageModule} from '../home/home.module';
 import {PizzaService} from '../services/pizza.service';
 import { PanierComponent } from '../panier/panier.component';
+import { DetailsComponent } from '../details/details.component';
 
 @NgModule({
     imports: [
@@ -19,8 +20,8 @@ import { PanierComponent } from '../panier/panier.component';
         PizzaPageRoutingModule,
         HomePageModule
     ],
-    declarations: [PizzaPage, PanierComponent],
-    entryComponents: [PanierComponent],
+    declarations: [PizzaPage, PanierComponent, DetailsComponent],
+    entryComponents: [PanierComponent, DetailsComponent],
     providers: [PizzaService]
 })
 export class PizzaPageModule {}

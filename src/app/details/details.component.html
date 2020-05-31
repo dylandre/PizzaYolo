@@ -1,0 +1,20 @@
+<ion-content>
+  <div id="card-container">
+    <ion-card>
+      <img src="{{onePizza.photo}}">
+      <ion-card-header>
+        <ion-card-title>{{onePizza.nom}}</ion-card-title>
+        <ion-card-subtitle>{{onePizza.prix}} €</ion-card-subtitle>
+      </ion-card-header>
+      <ion-card-content>
+        <ion-item>
+          <ion-label>Ingrédients :</ion-label>
+          <ion-label *ngFor="let ingredient of allIngredients">
+            <p>{{ingredient.nom}}</p>
+          </ion-label>
+        </ion-item>
+        <ion-button expand="block" color="dark" (click)="addPizzaToBuy(onePizza.id)">Ajouter au panier</ion-button>
+      </ion-card-content>
+    </ion-card>
+  </div>
+</ion-content>

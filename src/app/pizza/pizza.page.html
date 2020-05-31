@@ -6,9 +6,9 @@
   </div>
   <div id="card-container">
     <ion-card *ngFor="let onePizza of pizza">
-      <img src="{{onePizza.photo}}">
+      <img src="{{onePizza.photo}}" (click)="presentModalWithData(onePizza.id)">
       <ion-card-header>
-        <ion-card-title>{{onePizza.nom}}</ion-card-title>
+        <ion-card-title (click)="presentModalWithData(onePizza.id)">{{onePizza.nom}}</ion-card-title>
         <ion-card-subtitle>{{onePizza.prix}} €</ion-card-subtitle>
       </ion-card-header>
       <ion-card-content>

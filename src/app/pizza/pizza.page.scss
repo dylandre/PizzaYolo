@@ -30,6 +30,12 @@
     max-width: 300px;
     min-width: 200px;
     margin: 10px;
+    img, ion-card-title {
+      cursor: pointer;
+    }
+    ion-card-title:hover{
+      color: dodgerblue;
+    }
   }
 }
 

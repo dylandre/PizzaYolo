@@ -3,6 +3,8 @@ import { HttpClient } from '@angular/common/http';
 import IPizza from '../models/IPizza';
 import Pizza from '../models/Pizza';
 import {BehaviorSubject, Observable} from 'rxjs';
+import Ingredients from '../models/Ingredients';
+import Iingredients from '../models/Iingredients';
 
 @Injectable({
   providedIn: 'root'
@@ -10,6 +12,7 @@ import {BehaviorSubject, Observable} from 'rxjs';
 export class PizzaService {
 
   pizzaUrl = 'https://api.ynov.jcatania.io/pizza/';
+  ingredientUrl = 'https://api.ynov.jcatania.io/ingredient/';
 
   panier: BehaviorSubject<Pizza[]> = new BehaviorSubject<Pizza[]>([]);
 
@@ -17,6 +20,11 @@ export class PizzaService {
 
   getAllPizza(): Observable<Pizza[]> {
     return this.http.get<IPizza[]>(this.pizzaUrl);
+  }
+
+  getIngredientsById(id: number): Observable<Ingredients> {
+    console.log(id);
+    return this.http.get<Iingredients>(this.ingredientUrl + id);
   }
 
   addPizzaToCard(myPizza: Pizza) {

@@ -14,13 +14,7 @@ export class HeaderComponent implements OnInit {
   counter: number;
   panier: Pizza[];
 
-  constructor(private pizzaService: PizzaService, private modalController: ModalController) { }
-    async presentModal() {
-        const modal = await this.modalController.create({
-            component: PanierComponent
-        });
-        return await modal.present();
-    }
+  constructor(private pizzaService: PizzaService, private modalController: ModalController) {}
     async presentModalWithData() {
         const modal = await this.modalController.create({
             component: PanierComponent,

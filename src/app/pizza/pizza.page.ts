@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { PizzaService } from '../services/pizza.service';
 import Pizza from '../models/Pizza';
 import { ModalController } from '@ionic/angular';
+import { DetailsComponent } from '../details/details.component';
 
 @Component({
   selector: 'app-pizza',
@@ -11,7 +12,6 @@ import { ModalController } from '@ionic/angular';
 export class PizzaPage implements OnInit {
 
   pizza: Pizza[];
-  panier: Pizza[];
   error: string;
   loading = false;
 
@@ -24,11 +24,16 @@ export class PizzaPage implements OnInit {
         },
         () => this.loading = true
     );
-    this.pizzaService.panier.subscribe(value => {
-        this.panier = value;
-        console.log('subscribe pizzaPage');
-    });
   }
+    async presentModalWithData(id: number) {
+        const modal = await this.modalController.create({
+            component: DetailsComponent,
+            componentProps: {
+                onePizza: this.pizza.find(value => value.id === id)
+            }
+        });
+        return await modal.present();
+    }
 
   ngOnInit() {}
 
