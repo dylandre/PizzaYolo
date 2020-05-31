@@ -22,6 +22,10 @@ export class PizzaService {
     return this.http.get<IPizza[]>(this.pizzaUrl);
   }
 
+  getAllIngredients(): Observable<Ingredients[]> {
+    return this.http.get<Iingredients[]>(this.ingredientUrl);
+  }
+
   getIngredientsById(id: number): Observable<Ingredients> {
     console.log(id);
     return this.http.get<Iingredients>(this.ingredientUrl + id);
@@ -59,7 +63,7 @@ export class PizzaService {
     }
   }
 
-  /*deletePizza(id: number): Observable<boolean> {
+  deletePizza(id: number): Observable<boolean> {
     return this.http.delete<boolean>(this.pizzaUrl + id);
-  }*/
+  }
 }

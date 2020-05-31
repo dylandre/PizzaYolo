@@ -14,20 +14,20 @@ export class AdministrationPage implements OnInit {
   loading = false;
   delete = false;
 
-  constructor(private pizzaService: PizzaService) {
-    this.pizzaService.getAllPizza().subscribe(
-        pizzas => this.pizza = pizzas,
-        error => {
-          this.error = error;
-          this.loading = false;
-        },
-        () => this.loading = true
-    );
+  constructor(private pizzaService: PizzaService) {}
+
+  ngOnInit() {
+      this.pizzaService.getAllPizza().subscribe(
+          pizzas => this.pizza = pizzas,
+          error => {
+              this.error = error;
+              this.loading = false;
+          },
+          () => this.loading = true
+      );
   }
 
-  ngOnInit() {}
-
-  /*deleteOnePizza(id: number) {
+  deleteOnePizza(id: number) {
     this.pizzaService.deletePizza(id).subscribe(
         value => this.delete = value,
         error1 => {
@@ -36,5 +36,5 @@ export class AdministrationPage implements OnInit {
         },
         () => this.loading = true
     );
-  }*/
+  }
 }
